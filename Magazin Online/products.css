@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("modern-orange-abstract-banner-background-illustration-free-vector.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+    height: 100vh;
+}
+.produse {
+    display: grid;
+    grid-template-columns: repeat(4, 100px); 
+    gap: 100px; 
+    justify-content: center; 
+    margin-top: 0.5%;
+    overflow: auto;
+    row-gap: 80px;
+}
+
+.produs {
+    height: 190px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s;
+}
+.produs:hover {
+    transform: scale(1.05);
+}
+.butonCumparare{
+    background-color:  #eb5a23;
+    height: 35px;
+    width: 35px;
+    border: transparent;
+    border-radius: 10px;
+    margin-left: 50px;
+    cursor: pointer;
+}
+.butonCumparare:hover{
+    background-color: orange;
+}
+.pretsibuton{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    font-weight: bold;
+}
+.pozaProdus{
+    width: 95%;
+    height: 70%;
+}
+.imagine {
+    width: 100%; 
+    height: auto;
+    max-width: 100%; 
+    display: block;
+}
+.nume{
+    margin-bottom: 5%;
+    font-weight: bold;
+}

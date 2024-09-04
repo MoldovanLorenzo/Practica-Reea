@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="home.css"><link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+        <div id="header-placeholder"></div>
+
+<script>
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+        });
+</script>
+    </head>
+<body>
+    <div class="continutHome">
+    <h1 class="titlumare">Coral</h1>
+    <h2 class="titlumic">Shopping</h2>
+    <p class="paragraf">Discover a world of endless possibilities at Coral, your one-stop shop for all your needs.<br> Whether you’re looking for the latest tech gadgets, stylish fashion pieces, home essentials, or unique gifts,<br> we’ve got you covered. Our carefully curated selection brings you the best in quality, value, and variety, all in one convenient place.</p>
+    <button class="butonGetstarted"><a href="products.html">Get Started!</a></button>
+    </div>
+</body>
+</html>

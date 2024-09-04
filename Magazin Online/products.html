@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="products.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                })
+                .then(() => {
+                    const scripts = document.getElementById('header-placeholder').getElementsByTagName('script');
+                    for (let i = 0; i < scripts.length; i++) {
+                        eval(scripts[i].innerText);
+                    }
+                });
+        });
+
+        // Vector global pentru a stoca produsele din coș
+        let cartItems = [];
+
+        function addToCart(productName, productPrice) {
+            cartItems.push({ name: productName, price: productPrice });
+            updateCartDrawer();
+        }
+
+        function calculateTotal() {
+            let total = 0;
+            cartItems.forEach(item => {
+                total += item.price;
+            });
+            return total;
+        }
+
+        function updateCartDrawer() {
+            const cartContent = document.querySelector('#cartDrawer .drawer-content');
+            cartContent.innerHTML = `
+                <span id="closeDrawer" class="close">&times;</span>
+                <h2>Your Cart</h2>
+            `;
+
+            cartItems.forEach(item => {
+                const productElement = document.createElement('p');
+                productElement.textContent = `${item.name} - ${item.price} LEI`;
+                cartContent.appendChild(productElement);
+            });
+
+            const totalElement = document.createElement('p');
+            totalElement.textContent = `Total: ${calculateTotal()} LEI`;
+            totalElement.style.fontWeight = 'bold';
+            totalElement.style.marginTop = '20px';
+            cartContent.appendChild(totalElement);
+
+            document.getElementById("closeDrawer").onclick = function() {
+                document.getElementById("cartDrawer").style.width = "0";
+            };
+        }
+    </script>
+
+<div class="produse">   
+    <div class="produs">
+        <div class="pozaProdus"><img src="res_a3790b71332bb6e8dff3ea1093cae89d.jpg" href="poza" class="imagine"></div>
+        <div class="nume">PC Gaming</div>
+        <div class="pretsibuton">
+            <div class="pret">1500 LEI</div>
+            <button class="butonCumparare" onclick="addToCart('PC Gaming', 1500)"><i class="fas fa-shopping-cart"></i></button>
+        </div>
+    </div>
+    <div class="produs">
+        <div class="pozaProdus"><img src="download.jpg" href="poza" class="imagine"></div>
+        <div class="nume">Tastatura</div>
+        <div class="pretsibuton">
+            <div class="pret">100 LEI</div>
+            <button class="butonCumparare" onclick="addToCart('Tastatura', 100)"><i class="fas fa-shopping-cart"></i></button>
+        </div>
+
+    </div>
+    <div class="produs">3</div>
+    <div class="produs">4</div>
+    <div class="produs">5</div>
+    <div class="produs">6</div>
+    <div class="produs">7</div>
+    <div class="produs">8</div>
+    <div class="produs">1</div>
+    <div class="produs">2</div>
+    <div class="produs">3</div>
+    <div class="produs">4</div>
+
+</div>
+</body>
+</html>

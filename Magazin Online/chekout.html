@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <title>Checkout</title>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <div class="checkout-container">
+        <div class="checkout-form">
+            <h1>Checkout</h1>
+            <h2>Shipping and Gift Options</h2>
+
+            <form id="shipping-form">
+                <label for="first-name">First Name <span class="required">required</span></label>
+                <input type="text" id="first-name" name="first-name" required>
+
+                <label for="last-name">Last Name <span class="required">required</span></label>
+                <input type="text" id="last-name" name="last-name" required>
+
+                <label for="street-address">Street Address <span class="required">required</span></label>
+                <input type="text" id="street-address" name="street-address" required>
+
+                <label for="apt-suite">Add apt, suite or other</label>
+                <input type="text" id="apt-suite" name="apt-suite">
+
+                <label for="postal-code">Postal Code <span class="required">required</span></label>
+                <input type="text" id="postal-code" name="postal-code" required>
+
+                <label for="city">Town/City <span class="required">required</span></label>
+                <input type="text" id="city" name="city" required>
+
+                <label for="province">Province <span class="required">required</span></label>
+                <select id="province" name="province" required>
+                    <option value="">Ardeal</option>
+                    <option>Transilvanya</option>
+                </select>
+
+                <label for="phone">Phone Number <span class="required">required</span></label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label>
+                    <input type="checkbox" name="billing-address-same" checked> Use as billing address
+                </label>
+
+                <button type="submit" class="next-button">PLace Order</button>
+            </form>
+        </div>
+
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <div id="cart-items">
+            </div>
+            <div class="summary-totals">
+                <p>Merchandise: <span id="merchandise-total">RON 0.00</span></p>
+                <p>Shipping & Handling: <span id="shipping-total">CAD 0.00</span></p>
+                <p>Tax: <span id="tax-total">RON 0.00</span></p>
+                <hr>
+                <p class="order-total">Order Total: <span id="order-total">RON 0.00</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="checkout.js"></script>
+</body>
+</html>
